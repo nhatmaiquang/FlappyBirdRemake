@@ -8,20 +8,20 @@ public class GameControl : MonoBehaviour
     public static GameControl instance;
     public GameObject gameOvertext;
     public bool gameOver = false;
-    // Start is called before the first frame update
+    public float scrollSpeed = -1.5f;
+
     void Awake()
     {
-       //If we don't currently have a game control...
-       if (instance == null)
-           //...set this one to be it...
-           instance = this;
-       //...otherwise...
-       else if(instance != this)
-           //...destroy this one because it is a duplicate.
-           Destroy (gameObject);
+       if (instance == null) {
+         instance = this;
+       }
+       else if (instance != this) {
+         Destroy(gameObject);
+       }
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         //If the game is over and the player has pressed some input...
